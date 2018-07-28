@@ -42,13 +42,24 @@
         $('#signin_form').submit(function(e){
             e.preventDefault();
             var formdata = $(this).serialize();
-            console.log(formdata);
+            // console.log(formdata);
 
             $.post('/handleSignin', formdata, function(data){
                 // console.log(data);
-                switch
+                switch (data.code) {
+                    case 1:
+                        alert(data.message);
+                        break;
+                    case 2:
+                        alert(data.message);
+                        break;
+                    case 500:
+                        alert(data.message);
+                        break;
+                    default: 
+                        break;
+                }
             });
-            
         });
     </script>
 </body>
